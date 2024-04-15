@@ -1,17 +1,19 @@
-import ListView from "./components/ListView";
-import './App.css';
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import "./App.css";
 
 function App() {
-  const names = [
-      "Jenia",
-      "Hanna",
-      "Nadzeya"
-  ]
-  return (
-    <div className="App">
-      <ListView names={names}/>
-    </div>
-  );
+    return (
+        <div className="wrapper flex-elem">
+            <Header/>
+            <div className="background flex-elem">
+                <Main />
+
+                <Footer/>
+            </div>
+        </div>
+    );
 }
 
 export default App;
