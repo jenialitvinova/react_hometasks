@@ -1,0 +1,33 @@
+.header__cart-img{
+  width: 100%;
+  transform: scale(0.7)
+}
+
+.header__cart{
+  width: 2rem;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-blue);
+  border-radius: 0.2rem;
+  position: relative;
+}
+
+.header__cart-circle{
+  background-color: var(--color-white);
+  border-radius: 50%;
+  width:1rem;
+  height: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top:-0.5rem;
+  right: -0.5rem;
+  padding: 0.55rem;
+  font-size: 0.8rem;
+  box-shadow: 7px 7px 25px 0px rgba(126, 130, 143, 0.27);
+}
+
+.card__h2{
+  color: var(--color-black);
+}
