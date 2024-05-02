@@ -1,3 +1,4 @@
+// MenuServices.jsx
 import React from 'react';
 import "./MenuServices.scss";
 import {phone} from "../../../__mocks__/testData"
