@@ -11,8 +11,24 @@
 }
 
 .card {
+  /* width: 50%; */
+  /* width: 25rem; если надо респонсив меняющиеся колонки */
   justify-content: center;
   align-items: center;
+}
+
+.card h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Количество строк после которого текст будет обрезан */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.card__wrapper:hover h3 {
+  display: block;
+  transform: scale(1.01);
+  cursor: pointer;
 }
 
 .card__wrapper {
@@ -21,6 +37,8 @@
   gap: 1rem;
   border-radius: 0.3rem;
   border: 0.1rem solid rgba(53, 184, 190, 0.15);
+  align-items: center;
+  width: 100%;
 }
 
 #quantityInput {
@@ -45,6 +63,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  width: 70%;
 }
 
 .card__add-to{
