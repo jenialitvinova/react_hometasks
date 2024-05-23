@@ -4,6 +4,8 @@ footer{
   gap: 1rem;
   position: relative;
   z-index: 2;
+  padding: 3rem 5rem 2rem 5rem;
+  background-color: #F5FBFC;
 }
 
 .footer__media{
@@ -29,7 +31,7 @@ footer{
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  bottom: -10%;
+  bottom: 0;
   left: -10%;
   width: 95%;
   height: 95%;

@@ -1,11 +1,12 @@
-import NavBar from "./NavBar/NavBar";
+import React from "react";
+import { useContext } from "react";
 import Logo from "../Logo/Logo";
 import Cart from "./Cart/Cart";
+import NavBar from "./NavBar/NavBar";
 import "./Header.scss";
-import { useCart } from "../../Context/CartContext";
-
+import { CartContext } from "../../Context/CartContext";
 const Header = () => {
-    const { cartQuantity } = useCart();
+    const { cartQuantity } = useContext(CartContext);
 
     return (
         <header className="header flex-elem">
