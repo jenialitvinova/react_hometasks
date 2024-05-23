@@ -70,3 +70,12 @@ h3 {
   font-size: 0.9rem;
   color: #546285;
 }
+
+.hide {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

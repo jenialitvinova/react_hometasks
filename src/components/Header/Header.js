@@ -1,21 +1,21 @@
-import React, { Component } from "react";
 import NavBar from "./NavBar/NavBar";
 import Logo from "../Logo/Logo";
-import "./Header.scss";
 import Cart from "./Cart/Cart";
+import "./Header.scss";
+import { useCart } from "../../Context/CartContext";
 
-class Header extends Component {
-    render() {
-        return (
-            <header className="header flex-elem">
-                <Logo />
-                <div className="header__wrapper flex-elem">
-                    <NavBar />
-                    <Cart cartQuantity={this.props.cartQuantity} />
-                </div>
-            </header>
-        );
-    }
-}
+const Header = () => {
+    const { cartQuantity } = useCart();
+
+    return (
+        <header className="header flex-elem">
+            <Logo />
+            <div className="header__wrapper flex-elem">
+                <NavBar />
+                <Cart cartQuantity={cartQuantity} />
+            </div>
+        </header>
+    );
+};
 
 export default Header;
