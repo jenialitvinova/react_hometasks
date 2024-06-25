@@ -1,0 +1,13 @@
+.social__img{
+    width: 100%;
+    transform: scale(0.5);
+}
+
+.social__img-div{
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    border: 0.025rem solid rgba(126, 130, 143, 0.30);
+    align-items: center;
+    justify-content: center;
+}
