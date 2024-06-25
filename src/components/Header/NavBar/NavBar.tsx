@@ -7,7 +7,12 @@ import { signOut } from "firebase/auth";
 import { actions as authActions } from "../../../store/slices/auth.slice";
 import { clearCart } from "../../../store/slices/cart.slice";
 
-const NavBar: React.FC = () => {
+interface NavBarProps {
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ isMenuOpen, toggleMenu }) => {
   const isLogged = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -29,16 +34,16 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="header__nav flex-elem">
-      <ul className="header__nav-list flex-elem">
-        <li className="flex-elem">
+    <nav className={`header__nav ${isMenuOpen ? "open" : "close"}`}>
+      <ul className="header__nav-list">
+        <li onClick={toggleMenu}>
           <NavLink to="/">Home</NavLink>
         </li>
-        <li className="flex-elem">
+        <li onClick={toggleMenu}>
           <NavLink to="/menu">Menu</NavLink>
         </li>
-        <li className="flex-elem">Company</li>
-        <li className="flex-elem">
+        <li onClick={toggleMenu}>Company</li>
+        <li onClick={toggleMenu}>
           {!isLogged ? (
             <NavLink to="/login">Login</NavLink>
           ) : (

@@ -1,16 +1,16 @@
 .button--primary{
     background: var(--color-blue);
-    color: var(--color-white);
+    color: #ffffff;
 }
 
 .button--primary-waves{
     background-image: url('../../assets/blue-waves.svg');
     background-size: cover;
-    color: var(--color-white);
+    color: #ffffff;
 }
 
 .button--transparent{
-    outline: 2px solid rgba(97, 114, 131, 0.2); 
+    outline: 2px solid rgba(97, 114, 131, 0.2);
 }
 
 .button {

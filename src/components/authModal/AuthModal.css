@@ -10,10 +10,11 @@
     justify-content: center;
     z-index: 999;
     animation: fadeIn 0.3s ease-in-out;
+    backdrop-filter: blur(0.2rem);
 }
 
 .modal-content {
-    background: var(--color-white);
+    background: var(--color-primary-transparent);
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;

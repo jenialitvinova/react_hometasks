@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./AuthModal.css";
 import Button from "../Buttons/Buttons";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,13 @@ interface AuthModalProps {
 }
 
 const AuthModal: React.FC<AuthModalProps> = ({ show, handleClose }) => {
+  const modalContent = useRef<HTMLInputElement>(null);
+  const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const target = e.target as Node;
+    if (modalContent.current && !modalContent.current.contains(target)) {
+      handleClose();
+    }
+  };
   useEffect(() => {
     if (show) {
       document.body.classList.add("no-scroll");
@@ -26,8 +33,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ show, handleClose }) => {
   }
 
   return (
-    <section className="modal-overlay">
-      <div className="modal-content flex-elem">
+    <section className="modal-overlay" onClick={handleClick}>
+      <div className="modal-content flex-elem" ref={modalContent}>
         <h1 className="blue">Please Log In</h1>
         <h2>You need to sign in to add items to your cart.</h2>
         <div className="modal__btns flex-elem">

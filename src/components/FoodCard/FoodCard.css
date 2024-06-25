@@ -24,7 +24,7 @@
 }
 
 .card__wrapper {
-    background-color: var(--color-white);
+    background-color: var(--card-color);
     padding: 1rem;
     gap: 1rem;
     border-radius: 0.3rem;

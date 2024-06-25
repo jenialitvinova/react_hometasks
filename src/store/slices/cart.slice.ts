@@ -45,8 +45,7 @@ export const cartSlice = createSlice({
       const itemIndex = state.findIndex((item) => item.id === payload.id);
       if (itemIndex !== -1) {
         state[itemIndex].quantity += payload.quantity;
-        state[itemIndex].totalPrice =
-          state[itemIndex].totalPrice + payload.totalPrice;
+        state[itemIndex].totalPrice += payload.totalPrice;
       } else {
         state.push(payload);
       }
