@@ -1,84 +1,76 @@
-import React, { Component } from "react";
+import { useState, useEffect } from "react";
 import FoodCard from "../../FoodCard/FoodCard";
 import Button from "../../Buttons/Buttons";
 import { buttonsList } from "../../../__mocks__/testData";
 import "./Hero.scss";
 
-class Hero extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            meals: [],
-            displayedMeals: [],
-            activeButton: 1,
-            isLoading: true,
-            itemsToShow: 6,
-        };
-    }
+const Hero = () => {
+    const [meals, setMeals] = useState([]);
+    const [displayedMeals, setDisplayedMeals] = useState([]);
+    const [activeCategory, setActiveCategory] = useState("Dessert");
+    const [isLoading, setIsLoading] = useState(true);
+    const [itemsToShow, setItemsToShow] = useState(6);
 
-    componentDidMount() {
-        fetch("https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals")
+    useEffect(() => {
+        setIsLoading(true);
+        setDisplayedMeals([]); // Очистка отображаемых блюд при начале загрузки
+        fetch(
+            `https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals?category=${activeCategory}`,
+        )
             .then((response) => response.json())
             .then((data) => {
-                this.setState({
-                    meals: data,
-                    isLoading: false,
-                    displayedMeals: data.slice(0, this.state.itemsToShow),
-                });
+                setMeals(data);
+                setTimeout(() => {
+                    setDisplayedMeals(data.slice(0, itemsToShow));
+                    setIsLoading(false);
+                }, 300); // Минимальная задержка для демонстрации анимации
             })
-            .catch((error) => console.error("Error fetching meals:", error));
-    }
+            .catch((error) => {
+                console.error("Error fetching meals:", error);
+                setIsLoading(false);
+            });
+    }, [activeCategory]);
 
-    setActiveButton = (id) => {
-        this.setState({ activeButton: id });
+    const handleSeeMore = () => {
+        const newItemsToShow = itemsToShow + 6;
+        setItemsToShow(newItemsToShow);
+        setDisplayedMeals(meals.slice(0, newItemsToShow));
     };
 
-    handleSeeMore = () => {
-        const newItemsToShow = this.state.itemsToShow + 6;
-        const newDisplayedMeals = this.state.meals.slice(0, newItemsToShow);
-
-        this.setState({
-            itemsToShow: newItemsToShow,
-            displayedMeals: newDisplayedMeals,
-        });
+    const handleCategoryChange = (category) => {
+        setActiveCategory(category);
+        setItemsToShow(6);
     };
 
-    render() {
-        const { displayedMeals, activeButton, isLoading } = this.state;
+    return (
+        <section className="hero flex-elem">
+            <div className="hero__buttons flex-elem">
+                {buttonsList.map((button) => (
+                    <Button
+                        key={button.id}
+                        buttonInfo={button.text}
+                        onClick={() => handleCategoryChange(button.text)}
+                        type={activeCategory === button.text ? "primary" : "transparent"}
+                    />
+                ))}
+            </div>
 
-        return (
-            <section className="hero flex-elem">
-                <div className="hero__buttons flex-elem">
-                    {buttonsList.map((button) => (
-                        <Button
-                            key={button.id}
-                            buttonInfo={button.text}
-                            onClick={() => this.setActiveButton(button.id)}
-                            type={activeButton === button.id ? "primary" : "transparent"}
-                        />
-                    ))}
-                </div>
-
-                {isLoading ? <div className="loading">Loading...</div> : null}
-
-                <div className="hero__food-list">
-                    {displayedMeals.map((meal) => (
-                        <FoodCard
-                            key={meal.id}
-                            title={meal.meal}
-                            subTitle={meal.instructions}
-                            price={`$${meal.price} USD`}
-                            imgUrl={meal.img}
-                            increaseCartQuantity={this.props.increaseCartQuantity}
-                        />
-                    ))}
-                </div>
-                {displayedMeals.length < this.state.meals.length && (
-                    <Button buttonInfo="See more" onClick={this.handleSeeMore} />
-                )}
-            </section>
-        );
-    }
-}
+            <div className={`hero__food-list ${isLoading ? "loading" : ""}`}>
+                {displayedMeals.map((meal) => (
+                    <FoodCard
+                        key={meal.id}
+                        title={meal.meal}
+                        subTitle={meal.instructions}
+                        price={`$${meal.price} USD`}
+                        imgUrl={meal.img}
+                    />
+                ))}
+            </div>
+            {!isLoading && displayedMeals.length < meals.length && (
+                <Button buttonInfo="See more" onClick={handleSeeMore} />
+            )}
+        </section>
+    );
+};
 
 export default Hero;

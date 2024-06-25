@@ -13,7 +13,7 @@ const navList = [
 ];
 
 const buttonsList = [
-    { id: 1, text: "Desert" },
+    { id: 1, text: "Dessert" },
     { id: 2, text: "Dinner" },
     { id: 3, text: "Breakfast" },
 ];
@@ -74,11 +74,17 @@ let cartQuantity = 0;
 const footerNavigation = [
     {
         id: 1,
-        content: ["Home", "Order", "FAQ", "Contact"],
+        content: ["Company", "Home", "Order", "FAQ", "Contact"],
     },
     {
         id: 2,
-        content: ["Style Guide", "Changelog", "Licence", "Webflow University"],
+        content: [
+            "Template",
+            "Style Guide",
+            "Changelog",
+            "Licence",
+            "Webflow University",
+        ],
     },
     {
         id: 3,
@@ -88,4 +94,11 @@ const footerNavigation = [
 
 const phone = "+37066679111";
 
-export { navList, cartQuantity, buttonsList, foodList, footerNavigation, phone };
+export {
+    navList,
+    cartQuantity,
+    buttonsList,
+    foodList,
+    footerNavigation,
+    phone,
+};
