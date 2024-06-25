@@ -1,0 +1,54 @@
+.login-main {
+    text-align: center;
+}
+
+form {
+    flex-direction: column;
+    width: 36.579rem;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-white);
+    padding: 1.895rem 3.579rem  2.211rem;
+    gap: 1.316rem;
+    position: relative;
+    border: 0.053rem solid rgba(53, 184, 190, 0.15);
+    border-radius: 0.316rem;
+}
+label{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1.474rem;
+}
+input{
+    padding: 0.579rem;
+    border-radius: 0.842rem;
+    border: 0.105rem solid #DDD;
+    flex: 1;
+    font-size: 0.842rem;
+}
+.login-main__title {
+    font-size: 2.632rem;
+}
+
+.form__buttons{
+    gap: 1.579rem;
+}
+
+.successful, .error {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+@media screen and (max-width: 767px) {
+    label {
+        flex-direction: column;
+    }
+    input{
+        width: 100%;
+        font-size: 1.7rem;
+    }
+}
