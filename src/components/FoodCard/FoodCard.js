@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 import "./FoodCard.scss";
 import Button from "../Buttons/Buttons";
-import { useCart } from "../../Context/CartContext";
 
 const FoodCard = ({ title, subTitle, price, imgUrl }) => {
     const [quantity, setQuantity] = useState(1);
-    const { addToCart } = useCart();
+    const { addToCart } = useContext(CartContext);
 
     const handleChange = (event) => {
         const input = event.target.value;

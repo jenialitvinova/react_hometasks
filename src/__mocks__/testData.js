@@ -5,13 +5,6 @@ import BurgerBacon from "../assets/BurgerBacon.svg";
 import BurgerSpicy from "../assets/BurgerSpicy.svg";
 import BurgerClassic from "../assets/BurgerClassic.svg";
 
-const navList = [
-    { id: 1, text: "Home" },
-    { id: 2, text: "Menu" },
-    { id: 3, text: "Company" },
-    { id: 4, text: "Login" },
-];
-
 const buttonsList = [
     { id: 1, text: "Dessert" },
     { id: 2, text: "Dinner" },
@@ -94,11 +87,4 @@ const footerNavigation = [
 
 const phone = "+37066679111";
 
-export {
-    navList,
-    cartQuantity,
-    buttonsList,
-    foodList,
-    footerNavigation,
-    phone,
-};
+export { cartQuantity, buttonsList, foodList, footerNavigation, phone };

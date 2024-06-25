@@ -1,20 +1,25 @@
 import React from "react";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import MenuPage from "./Pages/MenuPage/MenuPage";
 import Footer from "./components/Footer/Footer";
 import { CartProvider } from "./Context/CartContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import HomePage from "./Pages/HomePage/HomePage";
 
 const App = () => (
-    <div className="wrapper flex-elem">
-        <CartProvider>
-            <Header />
-            <div className="background flex-elem">
-                <Main />
+    <Router>
+        <div className="wrapper flex-elem">
+            <CartProvider>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/menu" element={<MenuPage />} />
+                </Routes>
                 <Footer />
-            </div>
-        </CartProvider>
-    </div>
+            </CartProvider>
+        </div>
+    </Router>
 );
 
 export default App;
