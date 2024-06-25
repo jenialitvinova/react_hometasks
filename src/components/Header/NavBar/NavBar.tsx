@@ -1,13 +1,12 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = () => (
+const NavBar: React.FC = () => (
   <nav className="header__nav flex-elem">
     <ul className="header__nav-list flex-elem">
       <li className="flex-elem">
-        <NavLink to="/" exact="true">
-          Home
-        </NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li className="flex-elem">
         <NavLink to="/menu">Menu</NavLink>

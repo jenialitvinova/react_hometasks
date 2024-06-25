@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Title,
   SubTitle,
@@ -15,7 +16,8 @@ import {
 import Button from "../../components/Buttons/Buttons";
 import GreenStar from "../../assets/GreenStar.svg";
 import HomePageImg from "../../assets/HomePageImg.svg";
-const HomePage = () => (
+
+const HomePage: React.FC = () => (
   <Background>
     <MainWrapper className="flex-elem">
       <HomeInfo className="flex-elem">
@@ -28,7 +30,7 @@ const HomePage = () => (
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500.
         </SubTitle>
-        <Button buttonInfo="Place an Order" />
+        <Button buttonInfo="Place an Order" onClick={() => null} />
         <StarRating className={"flex-elem"}>
           <FlexedWrapper className="flex-elem">
             <StarDiv>

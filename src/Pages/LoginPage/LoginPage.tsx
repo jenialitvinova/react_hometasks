@@ -1,17 +1,21 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import auth from "../../firebase-config";
 import "./LoginPage.css";
 import Button from "../../components/Buttons/Buttons";
 
-const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLogged, setIsLogged] = useState(null);
-  const [activeButton, setActiveButton] = useState("submit");
+const SignIn: React.FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [isLogged, setIsLogged] = useState<boolean | null>(null);
+  const [activeButton, setActiveButton] = useState<"submit" | "cancel">(
+    "submit",
+  );
 
-  const signIn = (e) => {
-    e.preventDefault();
+  const signIn = (e?: FormEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
     setActiveButton("submit");
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -24,12 +28,22 @@ const SignIn = () => {
       });
   };
 
-  const handleClear = (e) => {
-    e.preventDefault();
+  const handleClear = (e?: FormEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
     setPassword("");
     setEmail("");
     setIsLogged(null);
     setActiveButton("cancel");
+  };
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
   };
 
   return (
@@ -43,9 +57,9 @@ const SignIn = () => {
               type="email"
               placeholder="Enter your email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
               id="email"
-            ></input>
+            />
           </label>
           <label className="form__label flex-elem">
             Password
@@ -53,9 +67,9 @@ const SignIn = () => {
               type="password"
               placeholder="Enter your password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePasswordChange}
               id="password"
-            ></input>
+            />
           </label>
           <div className="form__buttons flex-elem">
             <Button

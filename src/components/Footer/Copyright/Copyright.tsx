@@ -1,7 +1,8 @@
+import React from "react";
 import Logo from "../../Logo/Logo";
 import "./Copyright.css";
 
-const Copyright = () => (
+const Copyright: React.FC = () => (
   <div className="footer_copy flex-elem">
     <Logo />
     <h2>

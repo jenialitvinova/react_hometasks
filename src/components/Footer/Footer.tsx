@@ -1,3 +1,4 @@
+import React from "react";
 import Copyright from "./Copyright/Copyright";
 import Navigation from "./Navigation/Navigation";
 import FooterAttribution from "./FooterAttribution/FooterAttribution";
@@ -7,7 +8,7 @@ import twitter from "../../assets/twitter.svg";
 import youtube from "../../assets/youtube.svg";
 import "./Footer.css";
 
-const Footer = () => (
+const Footer: React.FC = () => (
   <footer className="footer flex-elem">
     <div className="footer__info flex-elem">
       <Copyright />

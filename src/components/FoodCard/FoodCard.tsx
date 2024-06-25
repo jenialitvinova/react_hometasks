@@ -1,13 +1,25 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext, ChangeEvent } from "react";
 import { CartContext } from "../../Context/CartContext";
 import "./FoodCard.css";
 import Button from "../Buttons/Buttons";
+import { FoodCardProps } from "./FoodCard.types";
 
-const FoodCard = ({ title, subTitle, price, imgUrl }) => {
+const FoodCard: React.FC<FoodCardProps> = ({
+  title,
+  subTitle,
+  price,
+  imgUrl,
+}) => {
   const [quantity, setQuantity] = useState(1);
-  const { addToCart } = useContext(CartContext);
+  const cartContext = useContext(CartContext);
 
-  const handleChange = (event) => {
+  if (!cartContext) {
+    throw new Error("CartContext must be used within a CartProvider");
+  }
+
+  const { addToCart } = cartContext;
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
     const newQuantity = Math.max(1, parseInt(input, 10));
     setQuantity(newQuantity);

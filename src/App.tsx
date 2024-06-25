@@ -8,7 +8,7 @@ import "./App.css";
 import HomePage from "./Pages/HomePage/HomePage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 
-const App = () => (
+const App: React.FC = () => (
   <Router>
     <div className="wrapper flex-elem">
       <CartProvider>
