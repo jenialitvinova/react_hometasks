@@ -7,8 +7,13 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   type = "primary",
   className,
+  disabled = false,
 }) => (
-  <button onClick={onClick} className={`button button--${type} ${className}`}>
+  <button
+    onClick={onClick}
+    className={`button button--${type} ${className}`}
+    disabled={disabled}
+  >
     {buttonInfo}
   </button>
 );

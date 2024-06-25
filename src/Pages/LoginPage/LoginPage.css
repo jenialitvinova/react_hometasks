@@ -20,6 +20,7 @@ label{
     align-items: center;
     width: 100%;
     gap: 1.474rem;
+    white-space: nowrap;
 }
 input{
     padding: 0.579rem;
@@ -34,6 +35,8 @@ input{
 
 .form__buttons{
     gap: 1.579rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .successful, .error {
@@ -43,8 +46,17 @@ input{
     transform: translate(-50%, -50%)
 }
 
+.login-signup{
+    display: flex;
+    gap: 2rem;
+}
+
+.error-message{
+    color: var(--color-red);
+}
+
 @media screen and (max-width: 767px) {
-    label {
+    .form-group{
         flex-direction: column;
     }
     input{

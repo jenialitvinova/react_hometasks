@@ -10,3 +10,11 @@ ul {
 .active {
     color: var(--color-blue)
 }
+
+.logout-link:hover{
+    animation: none;
+}
+
+.logout-link{
+    cursor: pointer;
+}
