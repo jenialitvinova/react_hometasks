@@ -1,0 +1,79 @@
+.Background {
+  display: flex;
+  background-image: url("../../assets/BG Shape Home.svg");
+  background-size: cover;
+  background-position: right top;
+  padding: 3rem 5rem 5rem;
+  height: 100%;
+}
+
+.MainWrapper {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 767px) {
+  .MainWrapper {
+    flex-direction: column;
+  }
+}
+
+.HomeInfo {
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  gap: 2rem;
+  max-width: 32rem;
+}
+
+@media screen and (max-width: 767px) {
+  .HomeInfo {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.Title {
+  font-size: 3.158rem;
+  text-wrap: balance;
+}
+
+.SubTitle {
+  color: var(--color-grey);
+  font-size: 0.947rem;
+}
+
+.StarRating {
+  flex-direction: column;
+}
+
+.StarText {
+  color: var(--color-black);
+  font-weight: bold;
+}
+
+.FlexedWrapper {
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.StarDiv {
+  width: 1.368rem;
+}
+
+.StarImg {
+  width: 100%;
+}
+
+.HomeImgDiv {
+  max-width: 32rem;
+}
+
+.HomeImg {
+  width: 100%;
+}
+
+.flex-elem {
+  display: flex;
+}

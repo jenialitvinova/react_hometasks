@@ -11,13 +11,14 @@
   --color-black: #08090A;
   --color-blue: #35B8BE;
   --color-grey: #546285;
+  --color-red: #de2929;
   font-size: calc(.7vw + .6vh);
 }
 
 html, body {
   font-family: 'Inter', sans-serif;
   color: var(--color-black);
-  font-size: 0.8rem;
+  font-size: 0.947rem;
 }
 
 .wrapper{
@@ -45,7 +46,7 @@ header{
 .background{
   flex-direction: column;
   justify-content: space-between;
-  background-image: url("./assets/BG_Shape_Content.svg");
+  background-image: url("./assets/BG Shape Content.svg");
   background-size: cover;
   background-position: right top;
   flex: 1;
@@ -78,4 +79,11 @@ h3 {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+@media screen and (max-width: 767px) {
+  html, body {
+    font-size: 1.2rem;
+  }
+
 }
