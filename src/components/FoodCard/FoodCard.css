@@ -1,0 +1,75 @@
+.card__img {
+    width: 100%;
+}
+
+.card__div-img {
+    width: 8rem;
+}
+
+.card__h2 {
+    justify-content: space-between;
+}
+
+.card {
+    /* width: 50%; */
+    /* width: 25rem; если надо респонсив меняющиеся колонки */
+    justify-content: center;
+    align-items: center;
+}
+
+.card h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Количество строк после которого текст будет обрезан */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: 0.5s ease;
+}
+
+.card__wrapper:hover h3 {
+    display: block;
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+.card__wrapper {
+    background-color: var(--color-white);
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 0.3rem;
+    border: 0.1rem solid rgba(53, 184, 190, 0.15);
+    align-items: center;
+    width: 100%;
+}
+
+#quantityInput {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    width: 2.8rem;
+    text-align: center;
+    border-radius: 0.2rem;
+    border: 1px solid #DDD;
+    background: #FAFAFA;
+    font-size: 1rem;
+}
+
+#quantityInput::-webkit-inner-spin-button,
+#quantityInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.card__descr{
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 70%;
+}
+
+.card__add-to{
+    gap: 1rem;
+}
+
+.card__span{
+    font-size: 0.8rem;
+}
