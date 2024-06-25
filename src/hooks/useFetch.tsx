@@ -12,7 +12,7 @@ interface FetchResponse<T> {
   isLoading: boolean;
 }
 
-const useFetch = <T = any,>(
+const useFetch = <T ,>(
   url: string,
   options: UseFetchOptions,
   dependencies: any[] = [],

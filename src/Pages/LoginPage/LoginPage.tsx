@@ -3,28 +3,32 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import auth from "../../firebase-config";
 import "./LoginPage.css";
 import Button from "../../components/Buttons/Buttons";
+import {useAppDispatch, useAppSelector} from "../../hooks/globalhooks";
+import {actions} from "../../store/slices/auth.slice";
+import {useNavigate} from "react-router-dom";
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [isLogged, setIsLogged] = useState<boolean | null>(null);
   const [activeButton, setActiveButton] = useState<"submit" | "cancel">(
     "submit",
   );
 
-  const signIn = (e?: FormEvent) => {
-    if (e) {
-      e.preventDefault();
-    }
+  const isLogged = useAppSelector(state => state.auth);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const signIn = (e: FormEvent) => {
+    e.preventDefault();
     setActiveButton("submit");
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        setIsLogged(true);
+        dispatch(actions.isLogged(true));
+        navigate('/');
       })
       .catch((error) => {
         console.log(error);
-        setIsLogged(false);
+        dispatch(actions.isLogged(false));
       });
   };
 
@@ -34,8 +38,8 @@ const SignIn: React.FC = () => {
     }
     setPassword("");
     setEmail("");
-    setIsLogged(null);
     setActiveButton("cancel");
+    console.log(isLogged)
   };
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -85,11 +89,6 @@ const SignIn: React.FC = () => {
               type={activeButton === "cancel" ? "primary" : "transparent"}
             />
           </div>
-          {isLogged === null ? null : isLogged ? (
-            <div className="successful">Successful login</div>
-          ) : (
-            <div className="error">Login error</div>
-          )}
         </form>
       </main>
     </div>
