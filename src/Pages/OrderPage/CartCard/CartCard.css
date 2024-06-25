@@ -1,0 +1,22 @@
+.card-cart__descr{
+    justify-content: space-between;
+    gap: 2.6rem;
+    width: 100%;
+    align-items: center;
+}
+
+.card-cart__info{
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-delete-btn{
+    border-radius: 0.2rem;
+    min-width: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.579rem;
+    color: var(--color-primary);
+    background-color: var(--color-blue);
+}

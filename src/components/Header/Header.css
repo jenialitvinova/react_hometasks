@@ -1,0 +1,20 @@
+header {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.header__wrapper {
+  gap: 3rem;
+  align-items: center;
+}
+
+.header__theme-img{
+    width: 100%;
+    height: 100%;
+}
+
+.header__theme-icon{
+    width: 2rem;
+    height: 2rem;
+}
